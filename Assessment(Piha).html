@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="uft-8">
+    <title>Piha lodge</title>
+    <link rel = "stylesheet" href = "AssessmentStyle.css">
+</head>
+
+<body>    
+    <header>
+        <a href = "https://www.piha.co.nz/" target = "_black">
+        <div id = "HoriAd">                        
+            <img id="pihabeach" src = "images/piha_beach_panorama.jpg">
+            <img id="family" src = "images/Family_Beach.jpg">
+            <img id="surfing" src = "images/surfing.jpg">
+            <div id="mainTextBox">
+                <div id="beach">Piha Beach</div>
+                <div id="surf">Learn to Surf</div>
+                <div id="fun">Family Fun</div>                
+            </div>
+            <div id="floatTextBox">
+                <table id="floatText">
+                    <!-- <tr>
+                        <td class = "scroll">Piha</td>
+                        <td class = "scroll">Black Sand</td>
+                        <td class = "scroll">Benign Days</td>
+                        <td class = "scroll">Cool Nights</td>
+                        <td class = "scroll">Colorful Sunsets</td>
+                    </tr>  -->                    
+                        <tr class = "scroll"><td>Piha</td></tr>
+                        <tr class = "scroll"><td>Black Sand</td></tr>
+                        <tr class = "scroll"><td>Benign Days</td></tr>
+                        <tr class = "scroll"><td>Cool Nights</td></tr>
+                        <tr class = "scroll"><td>Colorful Sunsets</td></tr>
+                    </tr> 
+                </table>
+            </div>
+            <div id="myInfoBox1">
+                <table id="myInforamtion1">
+                    <tr>
+                        <td>Student ID :</td>
+                        <td>1562402</td>  
+                        <td>/</td>                  
+                        <td>Name :</td>
+                        <td> Chul Min Hwang</td>
+                    </tr>
+                </table>
+            </div>
+        </div></a>
+    </header>     
+    <section>        
+        <div id = "page1">
+            <div>
+                <table>
+                    <tr>                        
+                        <td> progress :</td>
+                        <td><input type = "range" min = 1 max = 5 value = 1 width = "100%"></td>
+                        <td id = "steps"></td>
+                        <!-- <td width = "20%"><div width = "100%" style ="background-color:rgb(40, 71, 247);">Booking plan</div></td>
+                        <td width = "1%"></td>
+                        <td width = "20%"><div width = "100%" style ="background-color:lightblue">Room select</div></td>
+                        <td width = "1%"></div></td>
+                        <td width = "20%"><div width = "100%" style ="background-color:lightblue">Guest details</div></td>
+                        <td width = "1%"></div></td>
+                        <td width = "20%"><div width = "100%" style ="background-color:lightblue">Additional Choice</div></td> -->
+                    </tr>
+                </table>            
+            </div>            
+            <table>
+                <tr>
+                    <td align = "right"><label for="inDate">Check in :</label></td>
+                    <td><input type="date" id="inDay" onchange="calStayDays()"></td>
+                </tr>
+                <tr>
+                    <td align = "right"><label for="outDate">Check out :</label></td>
+                    <td><input type="date" id="outDay" onchange="calStayDays()"></td>       
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="visitNights" align = "right">nights<br></td>
+                </tr>                
+                <tr>
+                    <td align = "right"><label for="numAdults">Adults :</label></td>
+                    <td><input type="number" id="numAdults" min = 0 onchange="calVisitors()"></td>
+                </tr>
+                <tr>
+                    <td align = "right"><label for="numChildren">Children :</label></td>
+                    <td><input type="number" id="numChildren" min = 0 onchange="calVisitors()"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="numVisit" align = "right">people</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td width = "100px"></td>
+                    <td></td>
+                    <td width = "100%"></td>
+                    <td><button type="button" onclick="openPage2()">next</button></td>
+                    <td width = "100px"></td>
+                </tr>
+            </table>
+         </div>
+
+         <div style = "display:none" id="page2">
+            <table>
+                <tr>
+                    
+                    <!-- <td width = "20%"><div width = "100%" style ="background-color:rgb(40, 71, 247)">Booking plan</div></td>
+                    <td width = "1%"></td>
+                    <td width = "20%"><div width = "100%" style ="background-color:rgb(40, 71, 247)">Room select</div></td>
+                    <td width = "1%"></div></td>
+                    <td width = "20%"><div width = "100%" style ="background-color:lightblue">Guest details</div></td>
+                    <td width = "1%"></div></td>
+                    <td width = "20%"><div width = "100%" style ="background-color:lightblue">Additional Choice</div></td> -->
+                </tr>
+            </table>
+             page2
+             <table>
+                <tr>
+                    <td width = "100px"></td>
+                    <td><button type="button" onclick="openPage1()">previous</button></td>
+                    <td width = "100%"></td>
+                    <td><button type="button" onclick="openPage3()">next</button></td>
+                    <td width = "100px"></td>
+                </tr>
+            </table> 
+         </div> 
+         <div style = "display:none" id="page3">
+            page3
+            <table>
+                <tr>
+                    <td width = "100px"></td>
+                    <td><button type="button" onclick="openPage2()">previous</button></td>
+                    <td width = "100%"></td>
+                    <td><button type="button" onclick="openPage4()">next</button></td>
+                    <td width = "100px"></td>
+                </tr>
+            </table> 
+        </div> 
+        <div style = "display:none" id="page4">
+            page4
+            <table>
+                <tr>
+                    <td width = "100px"></td>
+                    <td><button type="button" onclick="openPage3()">previous</button></td>
+                    <td width = "100%"></td>
+                    <td><button type="button" onclick="openPageSummary()">next</button></td>
+                    <td width = "100px"></td>
+                </tr>
+            </table>
+        </div>    
+        <div style = "display:none" id="pageSummary">
+            page5
+            <table>
+                <tr>
+                    <td width = "100px"></td>
+                    <td><button type="button" onclick="openPage4()">previous</button></td>
+                    <td width = "100%"></td>
+                    <td><button type="button" onclick="openPageSummit()">Summit</button></td>
+                    <td width = "100px"></td>
+                </tr>
+            </table>
+        </div>        
+    </section>
+    
+    <aside>
+        <a href = "https://www.toyota.co.nz/new-car/hilux/" target = "_black">
+        <div id="verticalAd">           
+                <img src="images/field.jpg" id="field">
+                <div id="vText1" class="vTxtAni1">Spinning</div>
+                <div id="vText2" class="vTxtAni2">car wheels</div>
+                <div id="carContainer" class="carStop">
+                    <img src="images/hilux.png" id="car">
+                    <div id="frontWheel">
+                        <img src="images/wheel.png" id="wheel1" class="rolling">
+                    </div>
+                    <div id="rearWheel">
+                        <img src="images/wheel.png" id="wheel2" class="rolling">
+                    </div>
+                </div>
+                <div id="myInforamtion2" class="myInfoAni"><table>
+                    <tr><td>Student ID : 1562402</td></tr>
+                    <tr><td>Name : Chul Min Hwang</td></tr>
+                </table></div>
+        </div></a>
+        <button id="restart" onclick="restartAd()" class="btnAni">Restart</button>
+    </aside>
+    <script src="booking.js"></script>
+</body>
