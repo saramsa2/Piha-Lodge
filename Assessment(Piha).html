@@ -18,14 +18,7 @@
                 <div id="fun">Family Fun</div>                
             </div>
             <div id="floatTextBox">
-                <table id="floatText">
-                    <!-- <tr>
-                        <td class = "scroll">Piha</td>
-                        <td class = "scroll">Black Sand</td>
-                        <td class = "scroll">Benign Days</td>
-                        <td class = "scroll">Cool Nights</td>
-                        <td class = "scroll">Colorful Sunsets</td>
-                    </tr>  -->                    
+                <table id="floatText">                    
                         <tr class = "scroll"><td>Piha</td></tr>
                         <tr class = "scroll"><td>Black Sand</td></tr>
                         <tr class = "scroll"><td>Benign Days</td></tr>
@@ -47,24 +40,33 @@
             </div>
         </div></a>
     </header>     
-    <section>        
-        <div id = "page1">
-            <div>
-                <table>
-                    <tr>                        
-                        <td> progress :</td>
-                        <td><input type = "range" min = 1 max = 5 value = 1 width = "100%"></td>
-                        <td id = "steps"></td>
-                        <!-- <td width = "20%"><div width = "100%" style ="background-color:rgb(40, 71, 247);">Booking plan</div></td>
-                        <td width = "1%"></td>
-                        <td width = "20%"><div width = "100%" style ="background-color:lightblue">Room select</div></td>
-                        <td width = "1%"></div></td>
-                        <td width = "20%"><div width = "100%" style ="background-color:lightblue">Guest details</div></td>
-                        <td width = "1%"></div></td>
-                        <td width = "20%"><div width = "100%" style ="background-color:lightblue">Additional Choice</div></td> -->
-                    </tr>
-                </table>            
-            </div>            
+    <section>
+        <div id="bookingHeadBox">
+            <table>                
+                <tr>
+                    <td colspan="5">                        
+                        <div id="progressBox">
+                            <input type = "range" id="progress" list="progressData" min = 1 max = 4 value = 1 onchange="myProgress()">
+                            <datalist id="progressData">
+                                <option value = 1 label ="Step 1"></option>
+                                <option value = 2 label ="Step 2"></option>
+                                <option value = 3 label ="Step 3"></option>
+                                <option value = 4 label ="Step 4"></option>
+                            </datalist>
+                        </div>
+                    </td>
+                </tr>
+                <tr>                        
+                    <td class="progressText">Step 1</td>
+                    <td class="progressText">Step 2</td>
+                    <td class="progressText">Step 3</td>
+                    <td class="progressText">Step 4</td>                    
+                </tr>
+                <tr><td></td></tr>
+            </table>  
+        </div>        
+<!-- Step 1 -->        
+        <div id = "page1">            
             <table>
                 <tr>
                     <td align = "right"><label for="inDate">Check in :</label></td>
@@ -72,93 +74,196 @@
                 </tr>
                 <tr>
                     <td align = "right"><label for="outDate">Check out :</label></td>
-                    <td><input type="date" id="outDay" onchange="calStayDays()"></td>       
+                    <td><input type="date" id="outDay" onchange="calStayDays()"></td> 
                 </tr>
                 <tr>
                     <td></td>
-                    <td id="visitNights" align = "right">nights<br></td>
-                </tr>                
+                    <td id="visitNights" align = "right"><br></td>
+                </tr>   
                 <tr>
-                    <td align = "right"><label for="numAdults">Adults :</label></td>
-                    <td><input type="number" id="numAdults" min = 0 onchange="calVisitors()"></td>
-                </tr>
+                    <td align = "right"><label>Prefer bed type :</label></td>
+                    <td>
+                        <div><input type="radio" id="twoSingle" name="preferBed" value="2 single beds" checked><label for="twoSingle">2 x Single beds</label></div>
+                        <div></div><input type="radio" id="queenBed" name="preferBed" value="Queen bed"><label for="queenBed">Queen bed</label></div>
+                        <div></div><input type="radio" id="bunkBed" name="preferBed" value="Bunkbed"><label for="bunkBed">Bunkbed</label></div>
+                    </td>
+                </tr>    
+            </table><br>
+            <table class = "btControls">
                 <tr>
-                    <td align = "right"><label for="numChildren">Children :</label></td>
-                    <td><input type="number" id="numChildren" min = 0 onchange="calVisitors()"></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td id="numVisit" align = "right">people</td>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <td width = "100px"></td>
-                    <td></td>
-                    <td width = "100%"></td>
-                    <td><button type="button" onclick="openPage2()">next</button></td>
-                    <td width = "100px"></td>
+                    <td width = "20%"></td>                    
+                    <td width = "60%"></td>
+                    <td width = "20%"><button type="button" onclick="myNext()">Next</button></td>                    
                 </tr>
             </table>
          </div>
-
-         <div style = "display:none" id="page2">
+<!-- Step 2 -->
+         <div style = "display:none" id="page2">            
             <table>
                 <tr>
-                    
-                    <!-- <td width = "20%"><div width = "100%" style ="background-color:rgb(40, 71, 247)">Booking plan</div></td>
-                    <td width = "1%"></td>
-                    <td width = "20%"><div width = "100%" style ="background-color:rgb(40, 71, 247)">Room select</div></td>
-                    <td width = "1%"></div></td>
-                    <td width = "20%"><div width = "100%" style ="background-color:lightblue">Guest details</div></td>
-                    <td width = "1%"></div></td>
-                    <td width = "20%"><div width = "100%" style ="background-color:lightblue">Additional Choice</div></td> -->
+                    <td align ="right">Arrival time :</td>
+                    <td><input type="range" id="rgArravalTime" min=2 max=10 value=2 onchange="ArrivalTimeChange()"><br>
+                        <label id="lbArrivalTime">2 PM</label>
+                    </td>                    
                 </tr>
-            </table>
-             page2
-             <table>
+                <tr><td></td></tr>
                 <tr>
-                    <td width = "100px"></td>
-                    <td><button type="button" onclick="openPage1()">previous</button></td>
-                    <td width = "100%"></td>
-                    <td><button type="button" onclick="openPage3()">next</button></td>
-                    <td width = "100px"></td>
+                    <td align="right">Number of rooms :</td>
+                    <td>
+                        <select id="numRooms">
+                            <option value="1 room" selected>1 room</option>
+                            <option value="2 rooms">2 rooms</option>
+                            <option value="3 rooms">3 rooms</option>
+                            <option value="4 rooms">4 rooms</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Breakfast type :</td>
+                    <td>
+                        <select id="breakfast">
+                            <option value="Not necessary">Not need</option>
+                            <option value="Continental style">Continental</option>
+                            <option value="Korean style">Korean style</option>                            
+                        </select>
+                    </td>
+                </tr>
+            </table><br>
+            <table class = "btControls">
+                <tr>
+                    <td width = "20%"><button type="button" onclick="myPrevious()">Previous</button></td>
+                    <td width = "60%"></td>
+                    <td width = "20%"><button type="button" onclick="myNext()">Next</button></td>                    
                 </tr>
             </table> 
          </div> 
+<!-- Step 3 -->
          <div style = "display:none" id="page3">
-            page3
-            <table>
+            <div>
+                <table>
+                    <tr>
+                        <td align = "right"><label for="numAdults">Adults :</label></td>
+                        <td><input type="number" id="numAdults" min = 0 onchange="calVisitors()"></td>
+                    </tr>
+                    <tr>
+                        <td align = "right"><label for="numChildren">Children :</label></td>
+                        <td><input type="number" id="numChildren" min = 0 onchange="calVisitors()"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="numVisit" align = "right">people</td>
+                    </tr>
+                    <tr>
+                        <td align = "right" for="favouriteColor"><label>Favourite Color :</label></td>
+                        <td><input type="color" id="favouriteColor"><label>(for souvenir)</label></td>                        
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <table class = "btControls">
                 <tr>
-                    <td width = "100px"></td>
-                    <td><button type="button" onclick="openPage2()">previous</button></td>
-                    <td width = "100%"></td>
-                    <td><button type="button" onclick="openPage4()">next</button></td>
-                    <td width = "100px"></td>
+                    <td width = "20%"><button type="button" onclick="myPrevious()">Previous</button></td>
+                    <td width = "60%"></td>
+                    <td width = "20%"><button type="button" onclick="myNext()">Next</button></td>                    
                 </tr>
             </table> 
         </div> 
+<!-- Step 4 -->
         <div style = "display:none" id="page4">
-            page4
             <table>
                 <tr>
-                    <td width = "100px"></td>
-                    <td><button type="button" onclick="openPage3()">previous</button></td>
-                    <td width = "100%"></td>
-                    <td><button type="button" onclick="openPageSummary()">next</button></td>
-                    <td width = "100px"></td>
+                    <td aling="right">First Name :</td>
+                    <td><input type="text" id="txtFirstName"></td>
+                </tr>
+                <tr>
+                    <td aling="right">Last Name :</td>
+                    <td><input type="text" id="txtLastName"></td>
+                </tr>
+                <tr>
+                    <td aling="right">Email :</td>
+                    <td><input type="text" id="txtEmail"></td>
+                </tr>
+                <tr>
+                    <td aling="right">Phone No. :</td>
+                    <td><input type="text" id="txtPhoneNo"></td>
+                </tr>
+                <tr>
+                    <td aling="right">Optional Choice :</td>
+                    <td>
+                        <input type="checkbox" id="ckBabaCot" value="Baby cot"><laber for="ckBabyCot">Baby Cot</laber><br>
+                        <input type="checkbox" id="ckBicycle" value="Bicycle"><laber for="ckBicycle">Bicycle</laber><br>
+                        <input type="checkbox" id="ckGoggles" value="Swimming goggles"><laber for="ckGoggles">Swimming goggles</laber><br>
+                        <input type="checkbox" id="ckSurfBoard" value="Surf board"><laber for="ckSurfBoard">Surf board</laber><br>
+                    </td>
                 </tr>
             </table>
-        </div>    
+            <br>         
+            <table class = "btControls">
+                <tr>
+                    <td width = "20%"><button type="button" onclick="myPrevious()">Previous</button></td>
+                    <td width = "60%"></td>
+                    <td width = "20%"><button type="button" onclick="openPageSummary()">Summary</button></td>
+                </tr>
+            </table>
+        </div>
+<!-- Step Summary -->
         <div style = "display:none" id="pageSummary">
-            page5
             <table>
                 <tr>
-                    <td width = "100px"></td>
-                    <td><button type="button" onclick="openPage4()">previous</button></td>
-                    <td width = "100%"></td>
-                    <td><button type="button" onclick="openPageSummit()">Summit</button></td>
-                    <td width = "100px"></td>
+                    <td align = "right" >Check in :</td>
+                    <td><label id="lbCheckIn"></label></td>
+                </tr>
+                <tr>
+                    <td align = "right" >Check out :</td>
+                    <td><label id="lbCheckOut"></label></td>
+                </tr>
+                <tr>
+                    <td align = "right" >Bed type :</td>
+                    <td><label id="lbBedType"></label></td>
+                </tr>
+                <tr>
+                    <td align = "right" >Arrival time :</td>
+                    <td><label id="lbTime"></label></td>
+                </tr>
+                <tr>
+                    <td align = "right" >Number of rooms :</td>
+                    <td><label id="lbNumRoom"></label></td>
+                </tr>
+                <tr>
+                    <td align = "right" >Kind of reakfast :</td>
+                    <td><label id="lbBreakfast"></label></td>
+                </tr>
+                <tr>
+                    <td align = "right" >Visitors :</td>
+                    <td><label id="lbVisitor"></label></td>
+                </tr>
+                <tr>
+                    <td align = "right" >Favourite color :</td>
+                    <td id="lbColour"></td>
+                </tr>
+                <tr>
+                    <td align = "right" >Name :</td>
+                    <td><label id="lbName"></label></td>
+                </tr>
+                <tr>
+                    <td align = "right" >Email :</td>
+                    <td><label id="lbEmail"></label></td>
+                </tr>
+                <tr>
+                    <td align = "right" >Phone :</td>
+                    <td><label id="lbPhone"></label></td>
+                </tr>
+                <tr>
+                    <td align = "right" >Additional Choice :</td>
+                    <td><label id="lbChoice"></label></td>
+                </tr>
+            </table>
+            <br>
+            <table class = "btControls">
+                <tr>
+                    <td width = "20%"><button type="button" onclick="openPage4()">Previous</button></td>
+                    <td width = "60%"></td>
+                    <td width = "20%"><button type="button" onclick="openPageSummit()">Summit</button></td>
                 </tr>
             </table>
         </div>        
@@ -185,6 +290,16 @@
                 </table></div>
         </div></a>
         <button id="restart" onclick="restartAd()" class="btnAni">Restart</button>
-    </aside>
+    </aside>  
+    
+    <footer>
+        <table>
+            <tr>
+                <td class="footerTd"><a href="https://github.com/saramsa2/Piha-Lodge/blob/Piha-Lodge/StoryBoard_Hori.pdf" target="_black">The storyboard of horizontal Ad.</a><br></td>
+                <td class="footerTd"><a href="https://github.com/saramsa2/Piha-Lodge/blob/Piha-Lodge/StoryBoard_Verti.pdf" target="_black">The storyboard of vertical Ad.</a></td>
+            </tr>
+        </table>
+        
+    </footer>
     <script src="booking.js"></script>
 </body>
