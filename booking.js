@@ -47,7 +47,7 @@ function openPage4()
     document.getElementById('page2').style.display = "none";
     document.getElementById('page3').style.display = "none";
     document.getElementById('page4').style.display = "";
-    document.getElementById('pageSummary').style.display = "";    
+    document.getElementById('pageSummary').style.display = "none";    
 }
 
 function openPageSummary()

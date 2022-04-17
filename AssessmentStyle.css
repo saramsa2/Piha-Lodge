@@ -22,18 +22,13 @@ table{
 }
 
 td{
-    height: 30px;
+    height: 30px;    
 }
 
 .scroll{
     height: 50px;
     text-align: center;
     word-break: keep-all;
-}
-
-footer{
-    position: relative;            
-    z-index: -1;
 }
 
 /* -------------------------------------------------------- */
