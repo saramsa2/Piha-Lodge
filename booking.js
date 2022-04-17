@@ -47,7 +47,7 @@ function openPage4()
     document.getElementById('page2').style.display = "none";
     document.getElementById('page3').style.display = "none";
     document.getElementById('page4').style.display = "";
-    document.getElementById('pageSummary').style.display = "none";
+    document.getElementById('pageSummary').style.display = "";    
 }
 
 function openPageSummary()
@@ -105,7 +105,6 @@ function validateInput()
         else if(document.getElementById("queenBed").checked) document.getElementById("lbBedType").innerHTML = document.getElementById("queenBed").value;
         else if(document.getElementById("bunkBed").checked) document.getElementById("lbBedType").innerHTML = document.getElementById("bunkBed").value;
 
-        debugger
         var xx = document.getElementById("rgArravalTime").value;
         document.getElementById("lbTime").innerHTML = document.getElementById("rgArravalTime").value + " PM";
         xx = document.getElementById("lbTime").innerHTML;
